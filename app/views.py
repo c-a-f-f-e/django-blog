@@ -107,5 +107,6 @@ class CategoryView(View):
         category_data = Category.objects.get(name=self.kwargs['category'])
         post_data = Post.objects.order_by('-id').filter(category=category_data)
         return render(request, 'app/index.html', {
-            'po
+            'post_data': post_data
+        })
 # Create your views here.
