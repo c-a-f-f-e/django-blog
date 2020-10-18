@@ -5,6 +5,7 @@ from django.utils import timezone
 
 class Post(models.Model):
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT) # 追加
 	title = models.CharField("タイトル", max_length=200)
 	image = models.ImageField(upload_to='images', verbose_name='イメージ画像', null=True, blank=True) # 追加
 	content = models.TextField("本文")
